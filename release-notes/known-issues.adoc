@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues.html 
+keywords: astra, control center, bugs, known issues, problems 
+summary: Los problemas conocidos identifican problemas por los que el uso correcto de esta versión del producto puede resultar imposible. 
+---
+= Problemas conocidos
+:hardbreaks:
+:allow-uri-read: 
+:source-highlighter: highlight.js
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+[role="lead"]
+Los problemas conocidos identifican problemas por los que el uso correcto de esta versión del producto puede resultar imposible.
+
+Los siguientes problemas conocidos afectan a la versión actual:
+
+* <<Los backups de aplicaciones y las snapshots producen errores si la clase volumesnapshotse añade después de gestionar un clúster>>
+* <<Se produce un error en los clones de aplicaciones después de poner en marcha una aplicación con una clase de almacenamiento establecida>>
+* <<Se produce un error en la gestión de un clúster con Astra Control Center cuando el archivo kubeconfig contiene más de un contexto>>
+* <<Un pod de supervisión puede fallar en entornos Istio>>
+* <<Las operaciones de gestión de datos de aplicaciones producen errores internos de servicio (500) cuando Astra Trident está sin conexión>>
+
+
+
+
+== Los backups de aplicaciones y las snapshots producen errores si la clase volumesnapshotse añade después de gestionar un clúster
+
+Los backups y las Snapshot fallan con un `UI 500 error` en este escenario. Como solución alternativa, actualice la lista de aplicaciones.
+
+
+
+== Se produce un error en los clones de aplicaciones después de poner en marcha una aplicación con una clase de almacenamiento establecida
+
+Una vez que se implementa una aplicación con una clase de almacenamiento definida explícitamente (por ejemplo, `helm install ...-set global.storageClass=netapp-cvs-perf-extreme`), los intentos posteriores de clonar la aplicación requieren que el clúster de destino tenga la clase de almacenamiento especificada originalmente.
+Se producirá un error al clonar una aplicación con una clase de almacenamiento definida explícitamente a un clúster que no tenga la misma clase de almacenamiento. No existen pasos de recuperación en este escenario.
+
+
+
+== Se produce un error en la gestión de un clúster con Astra Control Center cuando el archivo kubeconfig contiene más de un contexto
+
+No puede utilizar una imagen de kubeconfig con más de un clúster y contexto en él. Consulte link:https://kb.netapp.com/Cloud/Astra/Control/Managing_cluster_with_Astra_Control_Center_may_fail_when_using_default_kubeconfig_file_contains_more_than_one_context["artículo de base de conocimientos"^] si quiere más información.
+
+
+
+== Un pod de supervisión puede fallar en entornos Istio
+
+Si emparejas Astra Control Center con Cloud Insights en un entorno de Istio, el `telegraf-rs` el pod puede bloquearse. Para solucionar esta solución, siga estos pasos:
+
+. Busque el pod averiado:
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod | grep Error
+----
++
+Debería ver una salida similar a la siguiente:
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-fhhrh 1/2 Error 2 (26s ago) 32s
+----
+. Reinicie el pod averiado, sustituyéndolo `<pod_name_from_output>` con el nombre del pod afectado:
++
+[listing]
+----
+kubectl -n netapp-monitoring delete pod <pod_name_from_output>
+----
++
+Debería ver una salida similar a la siguiente:
+
++
+[listing]
+----
+pod "telegraf-rs-fhhrh" deleted
+----
+. Compruebe que el pod se ha reiniciado y que no está en un estado de error:
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod
+----
++
+Debería ver una salida similar a la siguiente:
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-rrnsb 2/2 Running 0 11s
+----
+
+
+
+
+== Las operaciones de gestión de datos de aplicaciones producen errores internos de servicio (500) cuando Astra Trident está sin conexión
+
+Si Astra Trident se desconecta (y se vuelve a conectar) y se producen 500 errores internos de servicio al intentar gestionar los datos de las aplicaciones, reinicie todos los nodos de Kubernetes del clúster de aplicaciones para restaurar la funcionalidad.
+
+
+
+== Obtenga más información
+
+* link:../release-notes/known-limitations.html["Limitaciones conocidas"]
+
