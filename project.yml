@@ -1,6 +1,7 @@
 ---
 settings:
-  name: Astra Control Center 23.07 documentation
+  name: Astra Control Center
+  downlevel: true
   internal:
     pdf_enabled: true
   prod:
@@ -23,7 +24,7 @@ settings:
   langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr,it-it
 sidebar:
   entries:
-  - title: Documentos de Astra Control Center
+  - title: Documentos de Astra Control Center 23,07
     url: "/index.html"
   - section: release-notes
   - section: get-started
