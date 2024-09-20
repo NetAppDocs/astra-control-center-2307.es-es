@@ -190,7 +190,6 @@ Cuando se desgestiona un clúster de Astra Control Center, Astra Trident no se d
   <block id="90d397f2aa31c2e6d9f5dfda5d12adca" category="paragraph">Astra Control Center se ejecuta en forma local en su propia nube privada.</block>
   <block id="95936e8fb1e1f6bf4c0671f4ccc84fe7" category="paragraph">Astra Control Center admite clústeres de Kubernetes con un tipo de almacenamiento basado en Astra Trident con un back-end de almacenamiento ONTAP 9,5 y superior.</block>
   <block id="51269e2584d26b04961877ec77db6da7" category="paragraph">En un entorno conectado a la nube, Astra Control Center utiliza Cloud Insights para proporcionar supervisión y telemetría avanzadas. Ante la ausencia de una conexión con Cloud Insights, la telemetría y la supervisión limitadas (7 días de métricas) están disponibles en Astra Control Center y también se exportan a herramientas de supervisión nativas de Kubernetes (como Prometheus y Grafana) mediante puntos finales de métricas abiertas.</block>
-  <block id="ea2708b459fc0cad6936ec216bd9405e" category="paragraph">Astra Control Center está totalmente integrado en el ecosistema de AutoSupport y Active IQ para proporcionar a los usuarios y el soporte de NetApp información sobre solución de problemas y uso.</block>
   <block id="e4a6d61b6602f5e6d6468645b096f45e" category="paragraph">Puedes probar Astra Control Center con una licencia de evaluación integrada de 90 días. Mientras estás evaluando Astra Control Center, puedes obtener soporte a través del correo electrónico y las opciones de la comunidad. Además, tendrá acceso a los artículos de la base de conocimientos y a la documentación desde la consola de soporte del producto.</block>
   <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link">requisitos</block>
   <block id="ebd65e27e034512530c808d2d0aa364d" category="paragraph">Para instalar y utilizar Astra Control Center, tendrá que estar seguro<block ref="0a14e0fc52cf8d6c6274f9c6e777d67d" category="inline-link-rx"></block>.</block>
@@ -980,7 +979,6 @@ Astra Trident se instala automáticamente como parte del proceso de importación
 NOTA: No utilizar<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> o.<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> en la dirección. Copie este FQDN para utilizarlo en un <block ref="39c8566ec35b62823c898c5e38a4b78c" category="inline-xref-macro-rx"></block>.</block>
   <block id="a35d697fca562fcd8adcc6a07880b3d5" category="cell"><block ref="51c3153f8b9ad8f3a27b28d6c8f95aab" prefix="" category="inline-code"></block></block>
   <block id="16655bd6caa78814980ce90854a07356" category="example-title">&lt;code&gt;autoSupport&lt;/code&gt;</block>
-  <block id="7548d8cfdbba865da930704f30a7542f" category="paragraph">Las selecciones de esta sección determinan si participará en la aplicación de soporte proactivo de NetApp, Active IQ de NetApp y dónde se envían los datos. Se requiere una conexión a Internet (puerto 442) y todos los datos de soporte se anóniman.</block>
   <block id="ad8783089f828b927473fb61d51940ec" category="cell">Uso</block>
   <block id="60d9e21a93c21f0d9ec8e72e12270054" category="cell"><block ref="774a4ec4adf9dd65264c77b3b87833b7" prefix="" category="inline-code"></block></block>
   <block id="24b6133a8f6f0866838539b9ca41cfa7" category="cell">Uno de los dos<block ref="ff7af27948b380bff5d583359796d3c8" prefix=" " category="inline-code"></block> o.<block ref="572d4e421e5e6b9bc11d815e8a027112" prefix=" " category="inline-code"></block> los campos deben seleccionarse</block>
@@ -2729,7 +2727,6 @@ Cuando el paquete está disponible para descarga, el icono Descargar aparece jun
   <block id="35f3a2f7a0f2c01d03afedb95ece66ab" category="inline-link">Carga de archivos autenticados de NetApp (se requiere inicio de sesión)</block>
   <block id="1c2989d4329c8aeec5e01506816fb04e" category="list-text">Uso<block ref="4b0bc63f683ccbf4dcf0ba2a6a1b561f" category="inline-link-rx"></block>.</block>
   <block id="94bcffc8ff8a109a8267202d2aaa5526" category="list-text">Adjunte el paquete al caso directamente en NSS.</block>
-  <block id="4345f2150d39e38a6a11ee7ee57bed28" category="list-text">Utilice Active IQ de NetApp.</block>
   <block id="51d249216b03414f10b242b851af7951" category="doc">Componentes de Astra Control</block>
   <block id="5ddd50ee81b614308861ff77d7830f09" category="inline-image-macro">Una imagen conceptual que describe la arquitectura de Astra Control y sus componentes</block>
   <block id="9a5af8d21a89c12b2cbe1b8eef81601d" category="paragraph"><block ref="9a5af8d21a89c12b2cbe1b8eef81601d" category="inline-image-macro-rx" type="image"></block></block>
@@ -3128,4 +3125,7 @@ Se producirá un error al clonar una aplicación con una clase de almacenamiento
   <block id="8d85c59d57ad2cafad4f894413219af0" category="sidebar">Clases de almacenamiento y tamaño de VP</block>
   <block id="ae5601e1a5453d0b5924098584b9c3f2" category="sidebar">Novedades de esta versión de Astra Control Center</block>
   <block id="6864eb9fc45cd6c1219a8562ce1cbe18" category="sidebar">Documentos de Astra Control Center 23,07</block>
+  <block id="a9cf730f8ab04a5b52f1d19c74c1483c" category="paragraph">Astra Control Center está totalmente integrado en el ecosistema del asesor digital de AutoSupport y Active IQ (también conocido como asesor digital) para proporcionar a los usuarios y al servicio de soporte de NetApp información sobre solución de problemas e uso.</block>
+  <block id="d89b38e0f587f8fa359a431abd35bb40" category="paragraph">Sus selecciones en esta sección determinan si participará en la aplicación de soporte proactivo de NetApp, el asesor digital y dónde se envían los datos. Se requiere una conexión a Internet (puerto 442) y todos los datos de soporte se anóniman.</block>
+  <block id="3cf9bc07c0ae31018d3336b8f32de6c8" category="list-text">Utilice el asesor digital.</block>
 </blocks>
